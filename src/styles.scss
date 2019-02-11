@@ -2,12 +2,14 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+
 body, html {
     height: 100%;
     margin: 0 auto;
 }
 
 body {
+    
     font-family: 'Montserrat';
     font-size: 18px;
 }
@@ -17,11 +19,11 @@ a {
 }
 
 .container {
-    max-width: 490px;
+    max-width: 875px;
     margin: 0 auto;
-    padding: 12px;
+    padding: 14px;
     display: grid;
-    grid-template-columns: 40% auto;
+    grid-template-columns: 100% auto;
 
     a {
         color: white;

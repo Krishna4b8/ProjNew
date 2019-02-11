@@ -1,0 +1,919 @@
+<div>
+    <mat-accordion >
+      <mat-expansion-panel  [expanded]="step === 0" (opened)="setStep(0)">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Select and Send AST Cards to SUSC 
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+     <div class="row">
+  <div>
+     <div> 
+            <label class='form-group'>*</label>
+          <label>Indicates Required Field</label></div>
+          <div>
+              <label class='form-group'>*</label>
+              
+                <mat-radio-button value="1"></mat-radio-button>
+                
+              <label>Card(exper selection required)</label>
+          </div>
+         
+            <div>
+                <mat-form-field>
+                    <mat-select placeholder="Select Card" [formControl]="toppings" multiple>
+                      <mat-select-trigger>
+                        {{toppings.value ? toppings.value[0] : ''}}
+                        <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+                          (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+                        </span>
+                      </mat-select-trigger>
+                      <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+                    </mat-select>
+                  </mat-form-field></div>
+                  <mat-hint class="hintClass">Accepts Advanced Search Expression</mat-hint>
+        </div>
+        <div class="secondClass">
+            <div> 
+                   <label class='form-group'></label>
+                 <label></label></div>
+                 <div>
+                     <label class='form-group'>*</label>
+                     
+                      <mat-radio-button value="1"></mat-radio-button>
+                      
+                     <label>Exper</label>
+                 </div>
+                
+                   <div>
+                      <mat-form-field>
+                          <mat-select placeholder="Select Exper" [formControl]="toppings1" multiple>
+                            <mat-option *ngFor="let topping1 of toppingList" [value]="topping1">{{topping1}}</mat-option>
+                          </mat-select>
+                        </mat-form-field></div>
+                        <mat-hint class="hintClass">Accepts Advanced Search Expression</mat-hint>
+               </div>
+               <div class="secondClass">
+                  <div> 
+                         <label class='form-group'></label>
+                       <label></label></div>
+                       <div>
+                           <label class='form-group'>*</label>
+                           <label>Enter List of Expers/Exper-Essays</label>
+                       </div>
+                       <textarea class="textareaClass" rows="5" id="comment"></textarea>
+                       <div> 
+                          <label class='form-group'>*</label>
+                        <label>Software Version</label></div>
+                         <div class="row">
+                           <div>
+                       <mat-form-field>
+                         <mat-select placeholder="Software Version">
+                           <mat-option>None</mat-option>
+                           <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                         </mat-select>
+                       </mat-form-field></div>
+                       <div class="searchButtonClass">
+                         <button class="btn btn-primary" (click)="showFiller = !showFiller">Search</button>
+                      </div>
+                      <div class="clearButtonClass">
+                          <button class="btn btn-primary">Clear</button>
+                       </div>
+                      </div>
+                     </div>
+                     <div class="secondClass1">
+                        <div> 
+                               <label class='form-group'></label>
+                             <label></label></div>
+                             <div>
+                                 <label class='form-group'>*</label>
+                                 <label>Enter List Of Sample Id(s)</label>
+                             </div>
+                             <textarea class="textareaClass2" rows="5" id="comment" enabled="false"></textarea>
+                            </div>
+                          </div>
+        <div *ngIf="showFiller">
+            <mat-toolbar color="primary" class="toolBarClass">
+               Exper/Essay Results
+              </mat-toolbar>
+              <div class="retrieveButtonClass"> 
+                  <button class="btn btn-primary">Retrieve Tests</button>
+              </div>
+              
+              <div> 
+                <label>Table Filter</label>
+              </div>
+              <div class="row">
+                 <div class="SelectColumnsClass">
+                    <select class="customSelectClass" id="inputGroupSelect01" aria-placeholder="Select All Columns">
+                        <option value="1">Select All Columns..</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                   
+                  </div>
+                 
+                 <div class="tableSearchClass">
+                    <input  class="form-control" placeholder="Search">
+                  </div>
+                </div>
+  
+                <table id="example" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                      
+                        <tr>
+                            <th><input type="checkbox" value="">Select</th>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                            <th>Age</th>
+                            <th>Start date</th>
+                            <th>Salary</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" value=""></td>
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>61</td>
+                            <td>2011/04/25</td>
+                            <td>$320,800</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value=""></td>
+                            <td>Garrett Winters</td>
+                            <td>Accountant</td>
+                            <td>Tokyo</td>
+                            <td>63</td>
+                            <td>2011/07/25</td>
+                            <td>$170,750</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value=""></td>
+                            <td>Ashton Cox</td>
+                            <td>Junior Technical Author</td>
+                            <td>San Francisco</td>
+                            <td>66</td>
+                            <td>2009/01/12</td>
+                            <td>$86,000</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value=""></td>
+                            <td>Cedric Kelly</td>
+                            <td>Senior Javascript Developer</td>
+                            <td>Edinburgh</td>
+                            <td>22</td>
+                            <td>2012/03/29</td>
+                            <td>$433,060</td>
+                        </tr>
+                      
+                     
+                     
+                      
+                    </tbody>
+                 
+                </table>
+        </div>
+          
+      </mat-expansion-panel>
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Select and Send ID Cards to IDAnalysis
+          </mat-panel-title>
+          
+        </mat-expansion-panel-header>
+        <div class="row">
+            <div>
+               <div> 
+                      <label class='form-group'>*</label>
+                    <label>Indicates Required Field</label></div>
+                    <div>
+                        <label class='form-group'>*</label>
+                        <mat-radio-button value="1"></mat-radio-button>
+                        <label>Card(exper selection required)</label>
+                    </div>
+                   
+                      <div>
+                          <mat-form-field>
+                              <mat-select placeholder="Select Card" [formControl]="toppings" multiple>
+                                <mat-select-trigger>
+                                  {{toppings.value ? toppings.value[0] : ''}}
+                                  <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+                                    (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+                                  </span>
+                                </mat-select-trigger>
+                                <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+                              </mat-select>
+                            </mat-form-field></div>
+                            <mat-hint class="hintClass">Accepts Advanced Search Expression</mat-hint>
+                  </div>
+                  <div class="secondClass">
+                      <div> 
+                             <label class='form-group'></label>
+                           <label></label></div>
+                           <div>
+                               <label class='form-group'>*</label>
+                               <mat-radio-button value="1"></mat-radio-button>
+                               <label>Exper</label>
+                           </div>
+                           
+                             <div>
+                                <mat-form-field>
+                                    <mat-select placeholder="Select Exper" [formControl]="toppings1" multiple>
+                                      <mat-option *ngFor="let topping1 of toppingList" [value]="topping1">{{topping1}}</mat-option>
+                                    </mat-select>
+                                  </mat-form-field></div>
+                                  <mat-hint class="hintClass">Accepts Advanced Search Expression</mat-hint>
+                         </div>
+                         <div class="secondClass">
+                            <div> 
+                                   <label class='form-group'></label>
+                                 <label></label></div>
+                                 <div>
+                                     <label class='form-group'>*</label>
+                                     <label>Enter List of Expers/Exper-Essays</label>
+                                 </div>
+                                 <textarea class="textareaClass" rows="5" id="comment"></textarea>
+                                 <div> 
+                                    <label class='form-group'>*</label>
+                                  <label>Software Version</label></div>
+                                   <div class="row">
+                                     <div>
+                                 <mat-form-field>
+                                   <mat-select placeholder="State">
+                                     <mat-option>None</mat-option>
+                                     <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                                   </mat-select>
+                                 </mat-form-field></div>
+                                 <div class="searchButtonClass">
+                                   <button class="btn btn-primary" (click)="showFiller1 = !showFiller1">Search</button>
+                                </div>
+                                <div class="clearButtonClass">
+                                    <button class="btn btn-primary">Clear</button>
+                                 </div>
+                                </div>
+                               </div>
+                               <div class="secondClass1">
+                                  <div> 
+                                         <label class='form-group'></label>
+                                       <label></label></div>
+                                       <div>
+                                           <label class='form-group'>*</label>
+                                           <label>Enter List Of Sample Id(s)</label>
+                                       </div>
+                                       <textarea class="textareaClass2" rows="5" id="comment" enabled="false"></textarea>
+                                      </div>
+                                    </div>
+                  <div *ngIf="showFiller1">
+                      <mat-toolbar color="primary" class="toolBarClass">
+                         Exper/Essay Results
+                        </mat-toolbar>
+                        <div class="retrieveButtonClass"> 
+                            <button class="btn btn-primary">Retrieve Tests</button>
+                        </div>
+                        
+                        <div> 
+                          <label>Table Filter</label>
+                        </div>
+                        <div class="row">
+                           <div class="SelectColumnsClass">
+                              <select class="customSelectClass" id="inputGroupSelect01" aria-placeholder="Select All Columns">
+                                  <option value="1">Select All Columns..</option>
+                                  <option value="1">One</option>
+                                  <option value="2">Two</option>
+                                  <option value="3">Three</option>
+                                </select>
+                             
+                            </div>
+                           
+                           <div class="tableSearchClass">
+                              <input  class="form-control" placeholder="Search">
+                            </div>
+                          </div>
+            
+                          <table id="example" class="table table-striped table-bordered" style="width:100%">
+                              <thead>
+                                
+                                  <tr>
+                                      <th><input type="checkbox" value="">Select</th>
+                                      <th>Name</th>
+                                      <th>Position</th>
+                                      <th>Office</th>
+                                      <th>Age</th>
+                                      <th>Start date</th>
+                                      <th>Salary</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td><input type="checkbox" value=""></td>
+                                      <td>Tiger Nixon</td>
+                                      <td>System Architect</td>
+                                      <td>Edinburgh</td>
+                                      <td>61</td>
+                                      <td>2011/04/25</td>
+                                      <td>$320,800</td>
+                                  </tr>
+                                  <tr>
+                                      <td><input type="checkbox" value=""></td>
+                                      <td>Garrett Winters</td>
+                                      <td>Accountant</td>
+                                      <td>Tokyo</td>
+                                      <td>63</td>
+                                      <td>2011/07/25</td>
+                                      <td>$170,750</td>
+                                  </tr>
+                                  <tr>
+                                      <td><input type="checkbox" value=""></td>
+                                      <td>Ashton Cox</td>
+                                      <td>Junior Technical Author</td>
+                                      <td>San Francisco</td>
+                                      <td>66</td>
+                                      <td>2009/01/12</td>
+                                      <td>$86,000</td>
+                                  </tr>
+                                  <tr>
+                                      <td><input type="checkbox" value=""></td>
+                                      <td>Cedric Kelly</td>
+                                      <td>Senior Javascript Developer</td>
+                                      <td>Edinburgh</td>
+                                      <td>22</td>
+                                      <td>2012/03/29</td>
+                                      <td>$433,060</td>
+                                  </tr>
+                                
+                               
+                               
+                                
+                              </tbody>
+                           
+                          </table>
+                  </div>
+                    
+      </mat-expansion-panel>
+    
+      <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Select and Send AST Cards to Essential Agreement
+          </mat-panel-title>
+          
+        </mat-expansion-panel-header>
+        <div class="row">
+            <div>
+               <div> 
+                      <label class='form-group'>*</label>
+                    <label>Indicates Required Field</label></div>
+                    <div>
+                        <label class='form-group'>*</label>
+                        <mat-radio-button value="1"></mat-radio-button>
+                        <label>Card(exper selection required)</label>
+                    </div>
+                   
+                      <div>
+                          <mat-form-field>
+                              <mat-select placeholder="Select Card" [formControl]="toppings" multiple>
+                                <mat-select-trigger>
+                                  {{toppings.value ? toppings.value[0] : ''}}
+                                  <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+                                    (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+                                  </span>
+                                </mat-select-trigger>
+                                <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+                              </mat-select>
+                            </mat-form-field></div>
+                            <mat-hint class="hintClass">Accepts Advanced Search Expression</mat-hint>
+                  </div>
+                  <div class="secondClass">
+                      <div> 
+                             <label class='form-group'></label>
+                           <label></label></div>
+                           <div>
+                               <label class='form-group'>*</label>
+                               <mat-radio-button value="1"></mat-radio-button>
+                               <label>Exper</label>
+                           </div>
+                         
+                             <div>
+                                <mat-form-field>
+                                    <mat-select placeholder="Select Exper" [formControl]="toppings1" multiple>
+                                      <mat-option *ngFor="let topping1 of toppingList" [value]="topping1">{{topping1}}</mat-option>
+                                    </mat-select>
+                                  </mat-form-field></div>
+                                  <mat-hint class="hintClass">Accepts Advanced Search Expression</mat-hint>
+                         </div>
+                         <div class="secondClass">
+                            <div> 
+                                   <label class='form-group'></label>
+                                 <label></label></div>
+                                 <div>
+                                     <label class='form-group'>*</label>
+                                     <label>Enter List of Expers/Exper-Essays</label>
+                                 </div>
+                                 <textarea class="textareaClass" rows="5" id="comment"></textarea>
+                                 <div> 
+                                    <label class='form-group'>*</label>
+                                  <label>Software Version</label></div>
+                                   <div class="row">
+                                     <div>
+                                 <mat-form-field>
+                                   <mat-select placeholder="State">
+                                     <mat-option>None</mat-option>
+                                     <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                                   </mat-select>
+                                 </mat-form-field></div>
+                                 <div class="searchButtonClass">
+                                   <button class="btn btn-primary" (click)="showFiller2 = !showFiller2">Search</button>
+                                </div>
+                                <div class="clearButtonClass">
+                                    <button class="btn btn-primary">Clear</button>
+                                 </div>
+                                </div>
+                               </div>
+                               <div class="secondClass1">
+                                  <div> 
+                                         <label class='form-group'></label>
+                                       <label></label></div>
+                                       <div>
+                                           <label class='form-group'>*</label>
+                                           <label>Enter List Of Sample Id(s)</label>
+                                       </div>
+                                       <textarea class="textareaClass2" rows="5" id="comment" enabled="false"></textarea>
+                                      </div>
+                                    </div>
+                  <div *ngIf="showFiller2">
+                      <mat-toolbar color="primary" class="toolBarClass">
+                         Exper/Essay Results
+                        </mat-toolbar>
+                        <div class="retrieveButtonClass"> 
+                            <button class="btn btn-primary">Retrieve Tests</button>
+                        </div>
+                        
+                        <div> 
+                          <label>Table Filter</label>
+                        </div>
+                        <div class="row">
+                           <div class="SelectColumnsClass">
+                              <select class="customSelectClass" id="inputGroupSelect01" aria-placeholder="Select All Columns">
+                                  <option value="1">Select All Columns..</option>
+                                  <option value="1">One</option>
+                                  <option value="2">Two</option>
+                                  <option value="3">Three</option>
+                                </select>
+                             
+                            </div>
+                           
+                           <div class="tableSearchClass">
+                              <input  class="form-control" placeholder="Search">
+                            </div>
+                          </div>
+            
+                          <table id="example" class="table table-striped table-bordered" style="width:100%">
+                              <thead>
+                                
+                                  <tr>
+                                      <th><input type="checkbox" value="">Select</th>
+                                      <th>Name</th>
+                                      <th>Position</th>
+                                      <th>Office</th>
+                                      <th>Age</th>
+                                      <th>Start date</th>
+                                      <th>Salary</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td><input type="checkbox" value=""></td>
+                                      <td>Tiger Nixon</td>
+                                      <td>System Architect</td>
+                                      <td>Edinburgh</td>
+                                      <td>61</td>
+                                      <td>2011/04/25</td>
+                                      <td>$320,800</td>
+                                  </tr>
+                                  <tr>
+                                      <td><input type="checkbox" value=""></td>
+                                      <td>Garrett Winters</td>
+                                      <td>Accountant</td>
+                                      <td>Tokyo</td>
+                                      <td>63</td>
+                                      <td>2011/07/25</td>
+                                      <td>$170,750</td>
+                                  </tr>
+                                  <tr>
+                                      <td><input type="checkbox" value=""></td>
+                                      <td>Ashton Cox</td>
+                                      <td>Junior Technical Author</td>
+                                      <td>San Francisco</td>
+                                      <td>66</td>
+                                      <td>2009/01/12</td>
+                                      <td>$86,000</td>
+                                  </tr>
+                                  <tr>
+                                      <td><input type="checkbox" value=""></td>
+                                      <td>Cedric Kelly</td>
+                                      <td>Senior Javascript Developer</td>
+                                      <td>Edinburgh</td>
+                                      <td>22</td>
+                                      <td>2012/03/29</td>
+                                      <td>$433,060</td>
+                                  </tr>
+                                
+                               
+                               
+                                
+                              </tbody>
+                           
+                          </table>
+                  </div>
+                    
+      </mat-expansion-panel>
+  
+  
+  
+      <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Manage Breakpoint Datasets
+          </mat-panel-title>
+          
+        </mat-expansion-panel-header>
+    
+    
+        <div class="row">
+            <div>
+               <div> 
+                      <label class='form-group'>*</label>
+                    <label>Indicates Required Field</label></div>
+                    <div>
+                        <label class='form-group'>*</label>
+                        <mat-radio-button value="1"></mat-radio-button>
+                        <label>Card(exper selection required)</label>
+                    </div>
+                   
+                      <div>
+                          <mat-form-field>
+                              <mat-select placeholder="Select Card" [formControl]="toppings" multiple>
+                                <mat-select-trigger>
+                                  {{toppings.value ? toppings.value[0] : ''}}
+                                  <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+                                    (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+                                  </span>
+                                </mat-select-trigger>
+                                <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+                              </mat-select>
+                            </mat-form-field></div>
+                            <mat-hint class="hintClass">Accepts Advanced Search Expression</mat-hint>
+                  </div>
+                  <div class="secondClass">
+                      <div> 
+                             <label class='form-group'></label>
+                           <label></label></div>
+                           <div>
+                               <label class='form-group'>*</label>
+                               <mat-radio-button value="1"></mat-radio-button>
+                               <label>Exper</label>
+                           </div>
+                       
+                             <div>
+                                <mat-form-field>
+                                    <mat-select placeholder="Select Exper" [formControl]="toppings1" multiple>
+                                      <mat-option *ngFor="let topping1 of toppingList" [value]="topping1">{{topping1}}</mat-option>
+                                    </mat-select>
+                                  </mat-form-field></div>
+                                  <mat-hint class="hintClass">Accepts Advanced Search Expression</mat-hint>
+                         </div>
+                         <div class="secondClass">
+                            <div> 
+                                   <label class='form-group'></label>
+                                 <label></label></div>
+                                 <div>
+                                     <label class='form-group'>*</label>
+                                     <label>Enter List of Expers/Exper-Essays</label>
+                                 </div>
+                                 <textarea class="textareaClass" rows="5" id="comment"></textarea>
+                                 <div> 
+                                    <label class='form-group'>*</label>
+                                  <label>Software Version</label></div>
+                                   <div class="row">
+                                     <div>
+                                 <mat-form-field>
+                                   <mat-select placeholder="State">
+                                     <mat-option>None</mat-option>
+                                     <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                                   </mat-select>
+                                 </mat-form-field></div>
+                                 <div class="searchButtonClass">
+                                   <button class="btn btn-primary" (click)="showFiller3 = !showFiller3">Search</button>
+                                </div>
+                                <div class="clearButtonClass">
+                                    <button class="btn btn-primary">Clear</button>
+                                 </div>
+                                </div>
+                               </div>
+                               <div class="secondClass1">
+                                  <div> 
+                                         <label class='form-group'></label>
+                                       <label></label></div>
+                                       <div>
+                                           <label class='form-group'>*</label>
+                                           <label>Enter List Of Sample Id(s)</label>
+                                       </div>
+                                       <textarea class="textareaClass2" rows="5" id="comment" enabled="false"></textarea>
+                                      </div>
+                                    </div>
+                  <div *ngIf="showFiller3">
+                      <mat-toolbar color="primary" class="toolBarClass">
+                         Exper/Essay Results
+                        </mat-toolbar>
+                        <div class="retrieveButtonClass"> 
+                            <button class="btn btn-primary">Retrieve Tests</button>
+                        </div>
+                        
+                        <div> 
+                          <label>Table Filter</label>
+                        </div>
+                        <div class="row">
+                           <div class="SelectColumnsClass">
+                              <select class="customSelectClass" id="inputGroupSelect01" aria-placeholder="Select All Columns">
+                                  <option value="1">Select All Columns..</option>
+                                  <option value="1">One</option>
+                                  <option value="2">Two</option>
+                                  <option value="3">Three</option>
+                                </select>
+                             
+                            </div>
+                           
+                           <div class="tableSearchClass">
+                              <input  class="form-control" placeholder="Search">
+                            </div>
+                          </div>
+            
+                          <table id="example" class="table table-striped table-bordered" style="width:100%">
+                              <thead>
+                                
+                                  <tr>
+                                      <th><input type="checkbox" value="">Select</th>
+                                      <th>Name</th>
+                                      <th>Position</th>
+                                      <th>Office</th>
+                                      <th>Age</th>
+                                      <th>Start date</th>
+                                      <th>Salary</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td><input type="checkbox" value=""></td>
+                                      <td>Tiger Nixon</td>
+                                      <td>System Architect</td>
+                                      <td>Edinburgh</td>
+                                      <td>61</td>
+                                      <td>2011/04/25</td>
+                                      <td>$320,800</td>
+                                  </tr>
+                                  <tr>
+                                      <td><input type="checkbox" value=""></td>
+                                      <td>Garrett Winters</td>
+                                      <td>Accountant</td>
+                                      <td>Tokyo</td>
+                                      <td>63</td>
+                                      <td>2011/07/25</td>
+                                      <td>$170,750</td>
+                                  </tr>
+                                  <tr>
+                                      <td><input type="checkbox" value=""></td>
+                                      <td>Ashton Cox</td>
+                                      <td>Junior Technical Author</td>
+                                      <td>San Francisco</td>
+                                      <td>66</td>
+                                      <td>2009/01/12</td>
+                                      <td>$86,000</td>
+                                  </tr>
+                                  <tr>
+                                      <td><input type="checkbox" value=""></td>
+                                      <td>Cedric Kelly</td>
+                                      <td>Senior Javascript Developer</td>
+                                      <td>Edinburgh</td>
+                                      <td>22</td>
+                                      <td>2012/03/29</td>
+                                      <td>$433,060</td>
+                                  </tr>
+                                
+                               
+                               
+                                
+                              </tbody>
+                           
+                          </table>
+                  </div>
+                    
+      </mat-expansion-panel>
+      <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Manage FDA Datasets
+          </mat-panel-title>
+          
+        </mat-expansion-panel-header>
+        <div class="row">
+            <div>
+               <div> 
+                      <label class='form-group'>*</label>
+                    <label>Indicates Required Field</label></div>
+                    <div>
+                        <label class='form-group'>*</label>
+                        <mat-radio-button value="1"></mat-radio-button>
+                        <label>Card(exper selection required)</label>
+                    </div>
+                  
+                      <div>
+                          <mat-form-field>
+                              <mat-select placeholder="Select Card" [formControl]="toppings" multiple>
+                                <mat-select-trigger>
+                                  {{toppings.value ? toppings.value[0] : ''}}
+                                  <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+                                    (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+                                  </span>
+                                </mat-select-trigger>
+                                <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+                              </mat-select>
+                            </mat-form-field></div>
+                            <mat-hint class="hintClass">Accepts Advanced Search Expression</mat-hint>
+                  </div>
+                  <div class="secondClass">
+                      <div> 
+                             <label class='form-group'></label>
+                           <label></label></div>
+                           <div>
+                               <label class='form-group'>*</label>
+                               <mat-radio-button value="1"></mat-radio-button>
+                               <label>Exper</label>
+                           </div>
+                          
+                             <div>
+                                <mat-form-field>
+                                    <mat-select placeholder="Select Exper" [formControl]="toppings1" multiple>
+                                      <mat-option *ngFor="let topping1 of toppingList" [value]="topping1">{{topping1}}</mat-option>
+                                    </mat-select>
+                                  </mat-form-field></div>
+                                  <mat-hint class="hintClass">Accepts Advanced Search Expression</mat-hint>
+                         </div>
+                         <div class="secondClass">
+                            <div> 
+                                   <label class='form-group'></label>
+                                 <label></label></div>
+                                 <div>
+                                     <label class='form-group'>*</label>
+                                     <label>Enter List of Expers/Exper-Essays</label>
+                                 </div>
+                                 <textarea class="textareaClass" rows="5" id="comment"></textarea>
+                                 <div> 
+                                    <label class='form-group'>*</label>
+                                  <label>Software Version</label></div>
+                                   <div class="row">
+                                     <div>
+                                 <mat-form-field>
+                                   <mat-select placeholder="State">
+                                     <mat-option>None</mat-option>
+                                     <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                                   </mat-select>
+                                 </mat-form-field></div>
+                                 <div class="searchButtonClass">
+                                   <button class="btn btn-primary" (click)="showFiller4 = !showFiller4">Search</button>
+                                </div>
+                                <div class="clearButtonClass">
+                                    <button class="btn btn-primary">Clear</button>
+                                 </div>
+                                </div>
+                               </div>
+                               <div class="secondClass1">
+                                  <div> 
+                                         <label class='form-group'></label>
+                                       <label></label></div>
+                                       <div>
+                                           <label class='form-group'>*</label>
+                                           <label>Enter List Of Sample Id(s)</label>
+                                       </div>
+                                       <textarea class="textareaClass2" rows="5" id="comment" enabled="false"></textarea>
+                                      </div>
+                                    </div>
+                  <div *ngIf="showFiller4">
+                      <mat-toolbar color="primary" class="toolBarClass">
+                         Exper/Essay Results
+                        </mat-toolbar>
+                        <div class="retrieveButtonClass"> 
+                            <button class="btn btn-primary">Retrieve Tests</button>
+                        </div>
+                        
+                        <div> 
+                          <label>Table Filter</label>
+                        </div>
+                        <div class="row">
+                           <div class="SelectColumnsClass">
+                              <select class="customSelectClass" id="inputGroupSelect01" aria-placeholder="Select All Columns">
+                                  <option value="1">Select All Columns..</option>
+                                  <option value="1">One</option>
+                                  <option value="2">Two</option>
+                                  <option value="3">Three</option>
+                                </select>
+                             
+                            </div>
+                           
+                           <div class="tableSearchClass">
+                              <input  class="form-control" placeholder="Search">
+                            </div>
+                          </div>
+            
+                          <table id="example" class="table table-striped table-bordered" style="width:100%">
+                              <thead>
+                                
+                                  <tr>
+                                      <th><input type="checkbox" value="">Select</th>
+                                      <th>Name</th>
+                                      <th>Position</th>
+                                      <th>Office</th>
+                                      <th>Age</th>
+                                      <th>Start date</th>
+                                      <th>Salary</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td><input type="checkbox" value=""></td>
+                                      <td>Tiger Nixon</td>
+                                      <td>System Architect</td>
+                                      <td>Edinburgh</td>
+                                      <td>61</td>
+                                      <td>2011/04/25</td>
+                                      <td>$320,800</td>
+                                  </tr>
+                                  <tr>
+                                      <td><input type="checkbox" value=""></td>
+                                      <td>Garrett Winters</td>
+                                      <td>Accountant</td>
+                                      <td>Tokyo</td>
+                                      <td>63</td>
+                                      <td>2011/07/25</td>
+                                      <td>$170,750</td>
+                                  </tr>
+                                  <tr>
+                                      <td><input type="checkbox" value=""></td>
+                                      <td>Ashton Cox</td>
+                                      <td>Junior Technical Author</td>
+                                      <td>San Francisco</td>
+                                      <td>66</td>
+                                      <td>2009/01/12</td>
+                                      <td>$86,000</td>
+                                  </tr>
+                                  <tr>
+                                      <td><input type="checkbox" value=""></td>
+                                      <td>Cedric Kelly</td>
+                                      <td>Senior Javascript Developer</td>
+                                      <td>Edinburgh</td>
+                                      <td>22</td>
+                                      <td>2012/03/29</td>
+                                      <td>$433,060</td>
+                                  </tr>
+                                
+                               
+                               
+                                
+                              </tbody>
+                           
+                          </table>
+                  </div>
+                    
+      </mat-expansion-panel>
+    
+    </mat-accordion>
+    </div>

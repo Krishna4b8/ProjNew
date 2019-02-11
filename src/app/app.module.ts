@@ -13,6 +13,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatRadioModule} from '@angular/material/radio'
 import {
   MatButtonModule,
   MatFormFieldModule,
@@ -35,6 +36,7 @@ import {MatSelectModule} from '@angular/material/select';
     
   ],
   imports: [
+    MatRadioModule,
     MatToolbarModule,
     MatGridListModule,
     FormsModule,
